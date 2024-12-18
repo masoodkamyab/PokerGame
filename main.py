@@ -44,4 +44,3 @@ elif result == -1:
     print(f"Player 2 wins with a {hand_rank_description(player2_rank)}!")
 else:
     print("It's a tie!")
-توضیحات:
