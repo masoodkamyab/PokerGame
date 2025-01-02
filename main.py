@@ -18,6 +18,7 @@ class PokerUI(QWidget):
         super().__init__()
         self.setWindowTitle("Poker Win Probability Calculator")
         self.setGeometry(100, 100, 1000, 600)
+        self.setStyleSheet("background-color: #35654d")
 
         self.deck = Deck()
         self.evaluator = Evaluator()
@@ -37,7 +38,7 @@ class PokerUI(QWidget):
         # Hero Hand
         hero_layout = QHBoxLayout()
         hero_label = QLabel("Hero Hand:")
-        hero_label.setStyleSheet("font-weight: bold; font-size: 16px;")
+        hero_label.setStyleSheet("font-weight: bold; font-size: 20px;")
         hero_layout.addWidget(hero_label)
         self.hero_card_labels = [QLabel(), QLabel()]
         for label in self.hero_card_labels:
@@ -49,7 +50,7 @@ class PokerUI(QWidget):
         # Community Cards
         community_layout = QHBoxLayout()
         community_label = QLabel("Community Cards:")
-        community_label.setStyleSheet("font-weight: bold; font-size: 16px;")
+        community_label.setStyleSheet("font-weight: bold; font-size: 20px;")
         community_layout.addWidget(community_label)
         self.community_card_labels = []
         for _ in range(5):
@@ -57,6 +58,12 @@ class PokerUI(QWidget):
             label.setFixedSize(100, 145)
             label.setScaledContents(True)
             label.setStyleSheet("border: 1px solid black;")
+            placeholder_pixmap = QPixmap(
+                "graphics/cards/back.png")  # Update with the correct path to your placeholder image
+            if placeholder_pixmap.isNull():
+                label.setStyleSheet("border: 1px solid black; background-color: gray;")  # Fallback style
+            else:
+                label.setPixmap(placeholder_pixmap)
             self.community_card_labels.append(label)
             community_layout.addWidget(label)
         main_layout.addLayout(community_layout)
@@ -64,9 +71,13 @@ class PokerUI(QWidget):
         # Probabilities
         prob_layout = QVBoxLayout()
         self.preflop_label = QLabel("Pre-Flop Win Probability: N/A")
+        self.preflop_label.setStyleSheet("font-size: 14px; font-weight: bold")
         self.postflop_label = QLabel("Post-Flop Win Probability: N/A")
+        self.postflop_label.setStyleSheet("font-size: 14px; font-weight: bold")
         self.after_turn_label = QLabel("After Turn Win Probability: N/A")
+        self.after_turn_label.setStyleSheet("font-size: 14px; font-weight: bold")
         self.after_river_label = QLabel("After River Win Probability: N/A")
+        self.after_river_label.setStyleSheet("font-size: 14px; font-weight: bold")
         prob_layout.addWidget(self.preflop_label)
         prob_layout.addWidget(self.postflop_label)
         prob_layout.addWidget(self.after_turn_label)
@@ -76,12 +87,16 @@ class PokerUI(QWidget):
         # Buttons
         button_layout = QHBoxLayout()
         self.deal_flop_btn = QPushButton("Deal Flop")
+        self.deal_flop_btn.setStyleSheet("background-color: #005f64")
         self.deal_flop_btn.clicked.connect(self.deal_flop)
         self.deal_turn_btn = QPushButton("Deal Turn")
+        self.deal_turn_btn.setStyleSheet("background-color: #005f64")
         self.deal_turn_btn.clicked.connect(self.deal_turn)
         self.deal_river_btn = QPushButton("Deal River")
+        self.deal_river_btn.setStyleSheet("background-color: #005f64")
         self.deal_river_btn.clicked.connect(self.deal_river)
         self.reset_btn = QPushButton("Reset Game")
+        self.reset_btn.setStyleSheet("background-color: #5a0a21")
         self.reset_btn.clicked.connect(self.reset_game)
         button_layout.addWidget(self.deal_flop_btn)
         button_layout.addWidget(self.deal_turn_btn)
