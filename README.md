@@ -1,128 +1,70 @@
-# Poker Game Simulator
+# Poker Game Win Probability Calculator
 
-This repository contains a Python-based poker game simulation designed to evaluate poker hands, compare them, and simulate basic game functionality. It consists of modular code divided into files for card management, poker rules, and the main game logic. The project is beginner-friendly and serves as a foundation for building a complete poker game.
+This repository contains a Python-based application designed to calculate the win probability at any stage of a poker game. Developed with a focus on accuracy and efficiency, this project provides a practical tool for poker enthusiasts, players, and researchers alike.
 
-## Features
+## Project Overview
+The **Poker Game Win Probability Calculator** analyzes poker hands at various stages of the game (pre-flop, flop, turn, and river) to determine the likelihood of a player's hand winning against opponents. Using advanced probability calculations and poker strategies, it delivers insights that can assist in decision-making during gameplay.
 
-- Full deck simulation with 52 standard playing cards.
-- Randomized card drawing for players and the flop.
-- Hand evaluation based on standard poker rules.
-- Comparison of poker hands to determine the winner.
-- Modular code structure for easy expansion.
-- **Probability calculation** for estimating the chance of winning in any game state.
-
----
+### Key Features
+- **Stage-specific Probability Calculation**: Analyze win probabilities for each stage of a poker game.
+- **Customizable Opponent Count**: Adjust the number of opponents for more realistic scenarios.
+- **Efficient Algorithms**: Optimized for speed and accuracy.
+- **User-friendly Interface**: Intuitive commands and clear outputs.
 
 ## Installation
 
 ### Prerequisites
-
-- Python 3.8 or higher
-- `pygame` library for card animations and graphics (optional)
+- Python 3.8 or later
+- Required libraries (install via `requirements.txt`)
 
 ### Steps
-
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/poker-game-simulator.git
-   cd poker-game-simulator
+   git clone https://github.com/LowlingPy/PokerGame.git
+   cd PokerGame
    ```
-
 2. Install dependencies:
    ```bash
-   pip install pygame
+   pip install -r requirements.txt
    ```
-
----
-
-## Files and Structure
-
-### **1. card_manager.py**
-- Manages the deck, card drawing, and player hands.
-- Key Classes and Functions:
-  - `draw_random_cards(num_cards)`: Draws random cards from the deck.
-  - `Card`: Represents a single card with attributes for rank and suit.
-  - `Player`: Represents a player and their drawn cards.
-  - `Flop`: Simulates the three flop cards drawn during the game.
-
-### **2. poker_rules.py**
-- Implements hand evaluation logic and rules for poker.
-- Key Functions:
-  - `evaluate_hand(cards)`: Determines the rank of a poker hand.
-  - `compare_hands(hand1, hand2)`: Compares two hands to determine the winner.
-  - `hand_rank_description(rank)`: Returns a textual description of a hand rank.
-  - `calculate_probability(state)`: Estimates the probability of winning for a given game state.
-
-### **3. main.py**
-- Entry point for the poker game simulation.
-- Handles the game flow, including:
-  - Initializing players.
-  - Drawing cards for players and the flop.
-  - Evaluating hands and declaring the winner.
-  - Calculating and displaying the probability of winning.
-
----
-
-## Usage
-
-1. Run the main script to start the game simulation:
+3. Run the application:
    ```bash
    python main.py
    ```
 
-2. Example output:
-   ```
-   Player 1 Hand: ['8♠', 'K♥']
-   Player 2 Hand: ['5♣', 'Q♦']
-   Flop: ['3♦', '7♥', '9♠']
-   Player 1 wins with High Card (King).
-   Probability of Player 1 Winning: 62.5%
-   ```
+## Usage
+1. Start the application by running `main.py`.
+2. Input the current stage of the poker game (pre-flop, flop, turn, or river).
+3. Enter your hand and any known community cards.
+4. Specify the number of opponents.
+5. View the calculated win probability and additional insights.
 
----
-
-## How It Works
-
-1. A deck of 52 cards is initialized.
-2. Two players are dealt two random cards each.
-3. Three flop cards are revealed.
-4. Each player's hand is evaluated based on poker hand rankings.
-5. The probability of winning for each player is calculated based on remaining cards and potential hands.
-6. The winner is determined by comparing hand ranks.
-
----
-
-## Future Improvements
-
-- Add support for additional game stages (Turn and River).
-- Implement betting mechanics and player actions (fold, call, raise).
-- Create a graphical user interface (GUI) for a more interactive experience.
-- Enhance hand evaluation logic to support multi-player games.
-- Integrate advanced probability calculations for multi-player scenarios.
-
----
-
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
+## Contribution Guidelines
+Contributions are welcome! Follow these steps to contribute:
 1. Fork the repository.
-2. Create a new branch for your feature or bugfix:
+2. Create a new branch for your feature/bugfix:
    ```bash
    git checkout -b feature-name
    ```
-3. Commit your changes and push to your fork.
-4. Submit a pull request with a description of your changes.
-
----
+3. Commit your changes:
+   ```bash
+   git commit -m "Description of changes"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
 
 ## License
+This project is licensed under the [MIT License](LICENSE).
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+## Acknowledgments
+This project was developed as part of an academic assignment under the supervision of **Dr. Bardia Panahbehagh** at **Kharazmi University**.
+
+Special thanks to Dr. Panahbehagh for the guidance and support throughout the development process.
 
 ---
 
-## Acknowledgments
-
-Special thanks to the contributors who helped build this project. For any questions or suggestions, feel free to open an issue or contact the repository owner.
+For more details or queries, feel free to open an issue or contact the repository maintainer.
 
